@@ -1,8 +1,8 @@
 create schema if not exists azure_company;
 use azure_company;
 
-select * from information_schema.table_constraints
-	where constraint_schema = 'azure_company';
+-- select * from information_schema.table_constraints
+-- 	where constraint_schema = 'azure_company';
 
 -- restrição atribuida a um domínio
 -- create domain D_num as int check(D_num> 0 and D_num< 21);
@@ -21,6 +21,8 @@ CREATE TABLE employee(
     constraint chk_salary_employee check (Salary> 2000.0),
     constraint pk_employee primary key (Ssn)
 );
+
+alter table employee drop constraint fk_employee;
 
 alter table employee 
 	add constraint fk_employee 
